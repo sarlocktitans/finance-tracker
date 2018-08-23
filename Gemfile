@@ -7,9 +7,9 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'devise'
-gem 'jquery'
 gem 'twitter-bootstrap-rails'
-
+gem 'jquery-rails'
+gem 'jquery-turbolinks', '~> 2.1'
 gem 'devise-i18n'
 
 gem 'devise-bootstrap-views', '~> 1.0'

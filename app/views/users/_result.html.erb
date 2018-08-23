@@ -1,0 +1,7 @@
+<% if @stock %>
+	<div class="well search-result">
+		<STRONG>Symbol: </STRONG><%=@stock.ticker%>,
+		<STRONG>Name: </STRONG><%=@stock.name%>,
+		<STRONG>Price: </STRONG><%=@stock.last_price%> 
+	</div>
+<%end%>
