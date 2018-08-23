@@ -99,6 +99,7 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jquery (0.0.1)
     json (2.1.0)
     less (2.6.0)
       commonjs (~> 0.2.7)
@@ -255,6 +256,7 @@ DEPENDENCIES
   devise-bootstrap-views (~> 1.0)
   devise-i18n
   jbuilder (~> 2.5)
+  jquery
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.11)
   puma (~> 3.11)
