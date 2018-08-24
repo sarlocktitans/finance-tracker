@@ -1,19 +1,11 @@
 class StocksController < ApplicationController
 	def search
-		if params[:stock].present?
-			@stock = Stock.new_from_lookup(params[:stock])
-			if @stock.nil?
-				flash[:danger] = "Keyword #{params[:stock]} not found Please enter a valid tickle"
-				redirect_to my_portfolio_path
-			else
-				respond_to do |format|
-					format.js{ render partial: 'users/result'}
-				end
-			end
+		if params[:stock].blank?
+			flash.now[:danger] = "Please enter a ticker"
 		else
-			flash[:danger] = "Please enter a ticker"
-			render 'users/my_portfolio'
+			@stock = Stock.new_from_lookup(params[:stock])
+			flash.now[:danger] = "Keyword #{params[:stock]} not found Please enter a valid tickle" unless @stock
 		end
-		
+		render partial: 'users/result'
 	end
 end

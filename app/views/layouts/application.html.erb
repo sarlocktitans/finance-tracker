@@ -48,9 +48,11 @@
         <a class="navbar-brand" href="#">FinanceTracker</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
+            <%#if %>
+              <li><%= link_to "my portfolio", my_portfolio_path  %></li>
+            <%#else %>
+            <%#end%>
             <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
           </ul>
         </div>
       </div>
@@ -62,6 +64,7 @@
           <%= bootstrap_flash %>
           <%= yield %>
         </div> 
+        
       </div><!--/row-->
 
       <footer>
