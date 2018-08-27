@@ -1,10 +1,23 @@
-<div class="search-result">
-	<%= bootstrap_flash %>
-</div>
+
 <% if @stock %>
 	<div class="well search-result">
-		<STRONG>Symbol: </STRONG><%=@stock.ticker%>,
-		<STRONG>Name: </STRONG><%=@stock.name%>,
+		<STRONG>Symbol: </STRONG><%=@stock.ticker%>
+		<STRONG>Name: </STRONG><%=@stock.name%>
 		<STRONG>Price: </STRONG><%=@stock.last_price%> 
+		<% if current_user.can_add_stock?(@stock.ticker)%>
+			<%= link_to "Add to my stocks", user_stocks_path(user: current_user, 
+                                              stock_ticker: @stock.ticker),
+                                              class: "btn btn-xs btn-success", 
+                                              method: :post %>
+        <%else%>
+          <span class="label label-default">	
+        	 stock cannot be added because you already have
+       	 	<%if current_user.stock_already_added?(@stock.ticker)%>
+        		added this stock
+	        <%else%>
+	         	10 stocks
+	        <%end%>
+	      </span>
+        <%end%>
 	</div>
 <%end%>
